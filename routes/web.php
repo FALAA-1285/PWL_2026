@@ -29,6 +29,8 @@ use App\Http\Controllers\ArticleController;
 Route::get('/articles/{id}', [ArticleController::class, 'articles']);
 
 use App\Http\Controllers\PhotoController;
+use Illuminate\View\View;
+
 Route::resource('photos', PhotoController::class);
 
 Route::resource('photos', PhotoController::class)->only([ 
@@ -37,3 +39,5 @@ Route::resource('photos', PhotoController::class)->only([
 Route::resource('photos', PhotoController::class)->except([ 
 'create', 'store', 'update', 'destroy' 
 ]); 
+
+Route::get('/greeting', [WelcomeController::class, 'greeting']);
